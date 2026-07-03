@@ -1,0 +1,162 @@
+.app {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.header {
+  margin-bottom: 28px;
+  padding: 24px;
+  color: #ffffff;
+  background-color: #243b53;
+  border-radius: 8px;
+}
+
+.header h1 {
+  margin: 0 0 12px;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 0;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+.main-section,
+.panel {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #bcccdc;
+  border-radius: 6px;
+}
+
+.search-bar button {
+  padding: 10px 16px;
+  color: #ffffff;
+  background-color: #2f855a;
+  border: 0;
+  border-radius: 6px;
+}
+
+.search-bar input:disabled,
+.search-bar button:disabled {
+  opacity: 0.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-box {
+  padding: 14px;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 26px;
+  font-weight: bold;
+  color: #102a43;
+}
+
+.stat-label {
+  margin: 4px 0 0;
+  color: #52606d;
+}
+
+.character-list h2,
+.panel h2 {
+  margin: 0 0 14px;
+  color: #102a43;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.character-card {
+  overflow: hidden;
+  background-color: #f8fafc;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+}
+
+.character-card img {
+  display: block;
+  width: 100%;
+}
+
+.character-info {
+  padding: 12px;
+}
+
+.character-info h3 {
+  margin: 0 0 8px;
+}
+
+.character-info p {
+  margin: 4px 0;
+}
+
+.empty-message {
+  margin: 0;
+  padding: 18px;
+  color: #52606d;
+  background-color: #f8fafc;
+  border: 1px dashed #bcccdc;
+  border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+  .app {
+    padding: 16px;
+  }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+}
