@@ -86,7 +86,11 @@ function App() {
       <main className="app-layout">
         <section className="main-section">
           <SearchBar search={search} setSearch={setSearch} />
-          <Stats totalCharacters={filteredCharacters.length} />
+          <Stats
+            totalCharacters={characters.length}
+            totalFavorites={favorites.length}
+            totalBlocked={blocked.length}
+          />
 
           {loading && <p className="empty-message">Cargando personajes...</p>}
           {error && <p className="error-message">{error}</p>}

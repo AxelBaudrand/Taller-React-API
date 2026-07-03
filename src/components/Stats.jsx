@@ -1,4 +1,4 @@
-function Stats({ totalCharacters }) {
+function Stats({ totalCharacters, totalFavorites, totalBlocked }) {
   return (
     <section className="stats">
       <div className="stat-box">
@@ -7,12 +7,12 @@ function Stats({ totalCharacters }) {
       </div>
 
       <div className="stat-box">
-        <span className="stat-number">0</span>
+        <span className="stat-number">{totalFavorites}</span>
         <p className="stat-label">Favoritos</p>
       </div>
 
       <div className="stat-box">
-        <span className="stat-number">0</span>
+        <span className="stat-number">{totalBlocked}</span>
         <p className="stat-label">Bloqueados</p>
       </div>
     </section>
