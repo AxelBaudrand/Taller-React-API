@@ -1,8 +1,8 @@
-function Stats() {
+function Stats({ totalCharacters }) {
   return (
     <section className="stats">
       <div className="stat-box">
-        <span className="stat-number">0</span>
+        <span className="stat-number">{totalCharacters}</span>
         <p className="stat-label">Personajes</p>
       </div>
 

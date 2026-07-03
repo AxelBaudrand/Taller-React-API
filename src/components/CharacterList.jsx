@@ -1,8 +1,6 @@
 import CharacterCard from './CharacterCard'
 
-function CharacterList() {
-  const characters = []
-
+function CharacterList({ characters }) {
   return (
     <section className="character-list">
       <h2>Listado de personajes</h2>

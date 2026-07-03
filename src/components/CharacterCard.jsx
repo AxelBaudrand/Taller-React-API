@@ -5,7 +5,6 @@ function CharacterCard({ character }) {
 
       <div className="character-info">
         <h3>{character.name}</h3>
-        <p>ID: {character.id}</p>
         <p>Estado: {character.status}</p>
         <p>Especie: {character.species}</p>
       </div>

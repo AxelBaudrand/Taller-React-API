@@ -142,6 +142,15 @@
   border-radius: 8px;
 }
 
+.error-message {
+  margin: 0;
+  padding: 18px;
+  color: #842029;
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  border-radius: 8px;
+}
+
 @media (max-width: 800px) {
   .app {
     padding: 16px;
