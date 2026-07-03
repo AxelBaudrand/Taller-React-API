@@ -1,6 +1,4 @@
-function FavoritesPanel() {
-  const favorites = []
-
+function FavoritesPanel({ favorites, removeFavorite }) {
   return (
     <section className="panel">
       <h2>Favoritos</h2>
@@ -8,9 +6,22 @@ function FavoritesPanel() {
       {favorites.length === 0 ? (
         <p className="empty-message">No hay favoritos.</p>
       ) : (
-        <ul>
+        <ul className="favorites-list">
           {favorites.map((character) => (
-            <li key={character.id}>{character.name}</li>
+            <li key={character.id} className="favorite-item">
+              <img
+                src={character.image}
+                alt={character.name}
+                className="favorite-image"
+              />
+              <span>{character.name}</span>
+              <button
+                type="button"
+                onClick={() => removeFavorite(character.id)}
+              >
+                Quitar de favoritos
+              </button>
+            </li>
           ))}
         </ul>
       )}
