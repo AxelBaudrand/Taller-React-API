@@ -1,6 +1,13 @@
 import CharacterCard from './CharacterCard'
 
-function CharacterList({ characters, addFavorite, removeFavorite, isFavorite }) {
+function CharacterList({
+  characters,
+  addFavorite,
+  removeFavorite,
+  isFavorite,
+  blockCharacter,
+  isBlocked,
+}) {
   return (
     <section className="character-list">
       <h2>Listado de personajes</h2>
@@ -16,6 +23,8 @@ function CharacterList({ characters, addFavorite, removeFavorite, isFavorite }) 
               addFavorite={addFavorite}
               removeFavorite={removeFavorite}
               isFavorite={isFavorite}
+              blockCharacter={blockCharacter}
+              isBlocked={isBlocked}
             />
           ))}
         </div>

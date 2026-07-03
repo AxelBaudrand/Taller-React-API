@@ -1,6 +1,4 @@
-function BlockedPanel() {
-  const blocked = []
-
+function BlockedPanel({ blocked, unblockCharacter }) {
   return (
     <section className="panel">
       <h2>Bloqueados</h2>
@@ -8,9 +6,22 @@ function BlockedPanel() {
       {blocked.length === 0 ? (
         <p className="empty-message">No hay bloqueados.</p>
       ) : (
-        <ul>
+        <ul className="blocked-list">
           {blocked.map((character) => (
-            <li key={character.id}>{character.name}</li>
+            <li key={character.id} className="blocked-item">
+              <img
+                src={character.image}
+                alt={character.name}
+                className="blocked-image"
+              />
+              <span>{character.name}</span>
+              <button
+                type="button"
+                onClick={() => unblockCharacter(character.id)}
+              >
+                Desbloquear
+              </button>
+            </li>
           ))}
         </ul>
       )}

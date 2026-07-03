@@ -1,5 +1,13 @@
-function CharacterCard({ character, addFavorite, removeFavorite, isFavorite }) {
+function CharacterCard({
+  character,
+  addFavorite,
+  removeFavorite,
+  isFavorite,
+  blockCharacter,
+  isBlocked,
+}) {
   const favorite = isFavorite(character.id)
+  const blocked = isBlocked(character.id)
 
   const handleFavorite = () => {
     if (favorite) {
@@ -7,6 +15,10 @@ function CharacterCard({ character, addFavorite, removeFavorite, isFavorite }) {
     } else {
       addFavorite(character)
     }
+  }
+
+  const handleBlock = () => {
+    blockCharacter(character)
   }
 
   return (
@@ -19,6 +31,9 @@ function CharacterCard({ character, addFavorite, removeFavorite, isFavorite }) {
         <p>Especie: {character.species}</p>
         <button type="button" onClick={handleFavorite}>
           {favorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+        </button>
+        <button type="button" onClick={handleBlock} disabled={blocked}>
+          Bloquear
         </button>
       </div>
     </article>

@@ -11,6 +11,7 @@ function App() {
   const [characters, setCharacters] = useState([])
   const [search, setSearch] = useState('')
   const [favorites, setFavorites] = useState([])
+  const [blocked, setBlocked] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -51,9 +52,31 @@ function App() {
   const isFavorite = (characterId) =>
     favorites.some((item) => item.id === characterId)
 
-  const filteredCharacters = characters.filter((character) =>
-    character.name.toLowerCase().includes(search.toLowerCase())
-  )
+  const isBlocked = (characterId) =>
+    blocked.some((item) => item.id === characterId)
+
+  const blockCharacter = (character) => {
+    setBlocked((prevBlocked) => {
+      if (prevBlocked.some((item) => item.id === character.id)) {
+        return prevBlocked
+      }
+      return [...prevBlocked, character]
+    })
+
+    removeFavorite(character.id)
+  }
+
+  const unblockCharacter = (characterId) => {
+    setBlocked((prevBlocked) =>
+      prevBlocked.filter((item) => item.id !== characterId)
+    )
+  }
+
+  const filteredCharacters = characters
+    .filter((character) => !isBlocked(character.id))
+    .filter((character) =>
+      character.name.toLowerCase().includes(search.toLowerCase())
+    )
 
   return (
     <div className="app">
@@ -72,6 +95,8 @@ function App() {
               addFavorite={addFavorite}
               removeFavorite={removeFavorite}
               isFavorite={isFavorite}
+              blockCharacter={blockCharacter}
+              isBlocked={isBlocked}
             />
           )}
         </section>
@@ -81,7 +106,10 @@ function App() {
             favorites={favorites}
             removeFavorite={removeFavorite}
           />
-          <BlockedPanel />
+          <BlockedPanel
+            blocked={blocked}
+            unblockCharacter={unblockCharacter}
+          />
         </aside>
       </main>
     </div>
