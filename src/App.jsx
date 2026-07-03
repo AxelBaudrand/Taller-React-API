@@ -9,6 +9,7 @@ import './App.css'
 
 function App() {
   const [characters, setCharacters] = useState([])
+  const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -31,18 +32,22 @@ function App() {
       })
   }, [])
 
+  const filteredCharacters = characters.filter((character) =>
+    character.name.toLowerCase().includes(search.toLowerCase())
+  )
+
   return (
     <div className="app">
       <Header />
 
       <main className="app-layout">
         <section className="main-section">
-          <SearchBar />
-          <Stats totalCharacters={characters.length} />
+          <SearchBar search={search} setSearch={setSearch} />
+          <Stats totalCharacters={filteredCharacters.length} />
 
           {loading && <p className="empty-message">Cargando personajes...</p>}
           {error && <p className="error-message">{error}</p>}
-          {!loading && !error && <CharacterList characters={characters} />}
+          {!loading && !error && <CharacterList characters={filteredCharacters} />}
         </section>
 
         <aside className="side-panel">

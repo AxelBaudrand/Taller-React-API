@@ -6,7 +6,7 @@ function CharacterList({ characters }) {
       <h2>Listado de personajes</h2>
 
       {characters.length === 0 ? (
-        <p className="empty-message">No hay personajes para mostrar.</p>
+        <p className="empty-message">No se encontraron personajes.</p>
       ) : (
         <div className="character-grid">
           {characters.map((character) => (
