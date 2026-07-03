@@ -5,13 +5,14 @@ import Stats from './components/Stats'
 import CharacterList from './components/CharacterList'
 import FavoritesPanel from './components/FavoritesPanel'
 import BlockedPanel from './components/BlockedPanel'
+import useLocalStorage from './hooks/useLocalStorage'
 import './App.css'
 
 function App() {
   const [characters, setCharacters] = useState([])
   const [search, setSearch] = useState('')
-  const [favorites, setFavorites] = useState([])
-  const [blocked, setBlocked] = useState([])
+  const [favorites, setFavorites] = useLocalStorage('favorites', [])
+  const [blocked, setBlocked] = useLocalStorage('blocked', [])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
